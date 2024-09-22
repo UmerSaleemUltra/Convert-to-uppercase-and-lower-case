@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css'; // Importing the CSS file
 
 function TextConverter() {
   const [text, setText] = useState('');
@@ -19,23 +20,24 @@ function TextConverter() {
   };
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>Text Converter</h1>
+    <div className="converter-container">
+      <h1 className="title">Text Converter</h1>
       <textarea
+        className="text-area"
         rows="4"
         cols="50"
         value={text}
         onChange={handleChange}
         placeholder="Enter your text here"
-        style={{ padding: '10px', marginBottom: '10px' }}
       />
-      <br />
-      <button onClick={convertToLowerCase} style={{ marginRight: '10px', padding: '10px' }}>
-        Convert to Lowercase
-      </button>
-      <button onClick={convertToUpperCase} style={{ padding: '10px' }}>
-        Convert to Uppercase
-      </button>
+      <div className="button-container">
+        <button className="convert-button" onClick={convertToLowerCase}>
+          Convert to Lowercase
+        </button>
+        <button className="convert-button" onClick={convertToUpperCase}>
+          Convert to Uppercase
+        </button>
+      </div>
     </div>
   );
 }
